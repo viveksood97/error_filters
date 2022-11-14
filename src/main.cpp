@@ -16,6 +16,7 @@ int main() {
         error_filter.set_window_size(10);
         new_data_points_moving_avg.push_back(error_filter.moving_average_filter(raw_data_point));
     }
+    std::cout << "Hello" << std::endl;
     plt::plot(new_data_points_avg);
     plt::plot(new_data_points_moving_avg);
     plt::plot(imu_data);
