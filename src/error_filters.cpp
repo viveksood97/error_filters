@@ -34,3 +34,13 @@ double ErrorFilters::moving_average_filter(double data_point)
 void ErrorFilters::set_window_size(int size) {
     this->window_size = size;
 }
+
+void ErrorFilters::set_alpha(double alp) {
+    this->alpha = alp;
+}
+
+double ErrorFilters::exp_moving_average_filter(double data_point) {
+    double filtered_point = this->alpha*exp_moving_avg_past_mean + (1-alpha)*data_point;
+    exp_moving_avg_past_mean = filtered_point;
+    return filtered_point;
+}

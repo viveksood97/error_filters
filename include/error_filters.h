@@ -14,14 +14,22 @@ class ErrorFilters {
     double moving_average_past_mean;
     std::deque<double> past_data_points;
 
+    double alpha = 0.9;
+    double exp_moving_avg_past_mean = 0;
+
 
  public:
     ErrorFilters();
     ~ErrorFilters();
 
-    void set_window_size(int size);
+    
     double recursive_average_filter(double data_point);
+
+    void set_window_size(int size);
     double moving_average_filter(double data_point);
+
+    void set_alpha(double alp);
+    double exp_moving_average_filter(double data_point);
 };
 
 
